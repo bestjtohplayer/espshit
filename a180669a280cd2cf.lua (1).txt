@@ -1,0 +1,2219 @@
+-- ts file was generated at discord.gg/25ms
+
+
+print("\r\n\226\149\173\226\148\129\226\148\129\226\148\129\226\149\174\226\149\177\226\149\177\226\149\177\226\149\177\226\149\173\226\149\174\226\149\177\226\149\177\226\149\173\226\149\174\226\149\173\226\149\174\226\149\173\226\149\174\226\149\177\226\149\177\226\149\177\226\149\177\226\149\177\226\149\177\226\149\173\226\149\174\226\149\177\226\149\173\226\149\174\r\n\226\148\131\226\149\173\226\148\129\226\149\174\226\148\131\226\149\177\226\149\177\226\149\177\226\149\177\226\148\131\226\148\131\226\149\177\226\149\177\226\148\131\226\148\131\226\148\131\226\148\131\226\148\131\226\148\131\226\149\177\226\149\177\226\149\177\226\149\177\226\149\177\226\149\177\226\148\131\226\148\131\226\149\177\226\148\131\226\148\131\r\n\226\148\131\226\148\131\226\149\177\226\148\131\226\148\163\226\148\129\226\148\179\226\148\129\226\148\129\226\148\171\226\149\176\226\148\129\226\149\174\226\148\131\226\148\131\226\148\131\226\148\131\226\148\131\226\148\163\226\148\129\226\148\129\226\148\179\226\148\129\226\148\129\226\149\174\226\148\131\226\149\176\226\148\129\226\149\175\226\148\163\226\148\129\226\148\129\226\148\179\226\148\129\226\148\179\226\148\129\226\148\129\226\149\174\r\n\226\148\131\226\149\176\226\148\129\226\149\175\226\148\131\226\149\173\226\148\171\226\149\173\226\148\129\226\148\171\226\149\173\226\149\174\226\148\131\226\148\131\226\149\176\226\149\175\226\149\176\226\149\175\226\148\131\226\149\173\226\149\174\226\148\131\226\148\129\226\148\129\226\148\171\226\148\131\226\149\173\226\148\129\226\149\174\226\148\131\226\148\131\226\148\129\226\148\171\226\149\173\226\148\171\226\148\131\226\148\129\226\148\171\r\n\226\148\131\226\149\173\226\148\129\226\149\174\226\148\131\226\148\131\226\148\131\226\149\176\226\148\129\226\148\171\226\148\131\226\148\131\226\148\131\226\149\176\226\149\174\226\149\173\226\149\174\226\149\173\226\148\171\226\149\173\226\149\174\226\148\163\226\148\129\226\148\129\226\148\131\226\148\131\226\148\131\226\149\177\226\148\131\226\148\131\226\148\131\226\148\129\226\148\171\226\148\131\226\148\131\226\148\131\226\148\129\226\148\171\r\n\226\149\176\226\149\175\226\149\177\226\149\176\226\148\187\226\149\175\226\149\176\226\148\129\226\148\129\226\148\187\226\149\175\226\149\176\226\149\175\226\149\177\226\149\176\226\149\175\226\149\176\226\149\175\226\149\176\226\149\175\226\149\176\226\148\187\226\148\129\226\148\129\226\149\175\226\149\176\226\149\175\226\149\177\226\149\176\226\148\187\226\148\129\226\148\129\226\148\187\226\149\175\226\149\176\226\148\129\226\148\129\226\149\175\r\n")
+local v1 = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/"
+local vu2 = loadstring(game:HttpGet(v1 .. "Library.lua"))()
+local v3 = loadstring(game:HttpGet(v1 .. "addons/ThemeManager.lua"))()
+local v4 = loadstring(game:HttpGet(v1 .. "addons/SaveManager.lua"))()
+local v5 = game:GetService("Players")
+local vu6 = game:GetService("HttpService")
+local vu7 = v5.LocalPlayer
+local vu8 = {
+    Enabled = false,
+    TrackedVFX = {},
+    VFXCounts = {},
+    Connections = {},
+    LastLogTime = 0,
+    LogCooldown = 1,
+    PreviewEnabled = false,
+    PreviewClones = {},
+    UIElements = {},
+    ShowNotifications = true
+}
+local vu9 = {
+    Enabled = false,
+    TrackedAnimations = {},
+    AnimationCounts = {},
+    Connections = {},
+    UIElements = {},
+    PlayingAnimations = {},
+    PreviewEnabled = false,
+    ShowNotifications = true
+}
+local vu10 = {
+    Enabled = false,
+    TrackedSounds = {},
+    SoundCounts = {},
+    Connections = {},
+    UIElements = {},
+    PlayingSounds = {},
+    PreviewEnabled = false,
+    ShowNotifications = true,
+    LastSoundTime = 0,
+    SoundCooldown = 1
+}
+local vu11 = {
+    Enabled = false,
+    TrackedRequests = {},
+    RequestCounts = {},
+    UIElements = {},
+    ShowNotifications = true
+}
+local vu12 = {
+    SaveToFile = false,
+    SessionData = {
+        VFX = {},
+        Animations = {},
+        Sounds = {},
+        HTTP = {},
+        SessionStart = os.date("%Y-%m-%d %H:%M:%S"),
+        SessionEnd = nil
+    },
+    CurrentSessionFile = nil
+}
+local vu13 = {
+    Vis = "Default",
+    SaveFile = false
+}
+getgenv().Opt = vu2.Options
+getgenv().Tog = vu2.Toggles
+getgenv().Options = vu2.Options
+getgenv().Toggles = vu2.Toggles;
+(function()
+    if not isfolder("Logs-File") then
+        makefolder("Logs-File")
+    end
+end)()
+local function vu21()
+    local v14 = listfiles("Logs-File") or {}
+    local v15, v16, v17 = ipairs(v14)
+    local v18 = {}
+    while true do
+        local v19
+        v17, v19 = v15(v16, v17)
+        if v17 == nil then
+            break
+        end
+        local v20 = v19:match("([^/]+)$"):match("session%-(%d+)")
+        if v20 then
+            table.insert(v18, tonumber(v20))
+        end
+    end
+    if # v18 == 0 then
+        return 1
+    end
+    table.sort(v18)
+    return v18[# v18] + 1
+end
+local function vu23()
+    local v22 = vu21()
+    vu12.CurrentSessionFile = "Logs-File/session-" .. v22 .. ".json"
+    vu12.SessionData = {
+        VFX = {},
+        Animations = {},
+        Sounds = {},
+        HTTP = {},
+        SessionStart = os.date("%Y-%m-%d %H:%M:%S"),
+        SessionEnd = nil,
+        SessionNumber = v22
+    }
+    if vu12.SaveToFile then
+        saveSessionToFile()
+    end
+end
+local function vu25()
+    if vu12.SaveToFile and vu12.CurrentSessionFile then
+        vu12.SessionData.SessionEnd = os.date("%Y-%m-%d %H:%M:%S")
+        local v24 = vu6:JSONEncode(vu12.SessionData, true)
+        writefile(vu12.CurrentSessionFile, v24)
+    end
+end
+local function vu28(p26)
+    if vu12.SaveToFile then
+        local v27 = {
+            Name = p26.Name,
+            Type = p26.ClassType,
+            Count = p26.Count,
+            TimeFound = p26.TimeFound,
+            TextureId = p26.TextureId,
+            ParentPath = p26.ParentPath,
+            DateDetected = os.date("%Y-%m-%d")
+        }
+        table.insert(vu12.SessionData.VFX, v27)
+        vu25()
+    end
+end
+local function vu31(p29)
+    if vu12.SaveToFile then
+        local v30 = {
+            Name = p29.Name,
+            Count = p29.Count,
+            TimeFound = p29.TimeFound,
+            AnimationId = p29.AnimationId,
+            DateDetected = os.date("%Y-%m-%d")
+        }
+        table.insert(vu12.SessionData.Animations, v30)
+        vu25()
+    end
+end
+local function vu34(p32)
+    if vu12.SaveToFile then
+        local v33 = {
+            Name = p32.Name,
+            Count = p32.Count,
+            TimeFound = p32.TimeFound,
+            SoundId = p32.SoundId,
+            ParentPath = p32.ParentPath,
+            DateDetected = os.date("%Y-%m-%d")
+        }
+        table.insert(vu12.SessionData.Sounds, v33)
+        vu25()
+    end
+end
+local function vu37(p35)
+    if vu12.SaveToFile then
+        local v36 = {
+            Method = p35.Method,
+            Count = p35.Count,
+            TimeFound = p35.TimeFound,
+            Url = p35.Url,
+            Headers = p35.Headers,
+            Body = p35.Body,
+            DateDetected = os.date("%Y-%m-%d")
+        }
+        table.insert(vu12.SessionData.HTTP, v36)
+        vu25()
+    end
+end
+local function vu46(pu38, p39)
+    local v40 = # vu8.UIElements + 1
+    vu8.UIElements[v40] = {}
+    local v41 = p39:AddLabel(string.format("Name: %s\nType: %s\nCount: %dx\nTime: %s\nID: %s", pu38.Name, pu38.ClassType, pu38.Count, pu38.TimeFound, pu38.TextureId:sub(1, 40) .. (pu38.TextureId:len() > 40 and "..." or "")), true)
+    vu8.UIElements[v40].label = v41
+    local v42 = p39:AddButton({
+        Text = "Copy Texture ID",
+        Func = function()
+            setclipboard(pu38.TextureId)
+            vu2:Notify("Texture ID copied to clipboard!", 3)
+        end
+    })
+    vu8.UIElements[v40].copyButton = v42
+    if pu38.CanPreview then
+        local v43 = p39:AddButton({
+            Text = "Preview",
+            Func = function()
+                if vu8.PreviewEnabled then
+                    vu8:CreatePreview(pu38)
+                else
+                    vu2:Notify("Enable preview first!", 3)
+                end
+            end
+        })
+        vu8.UIElements[v40].previewButton = v43
+    end
+    if pu38.TextureId:match("^rbxassetid://%d+$") or pu38.TextureId:match("^http") then
+        local v44 = p39:AddImage("VFXImage_" .. v40, {
+            Image = pu38.TextureId,
+            Height = 80
+        })
+        vu8.UIElements[v40].image = v44
+    end
+    local v45 = p39:AddDivider()
+    vu8.UIElements[v40].divider = v45
+end
+local function vu55()
+    if VFXDisplayGroup then
+        local v47, v48, v49 = pairs(vu8.UIElements)
+        while true do
+            local vu50
+            v49, vu50 = v47(v48, v49)
+            if v49 == nil then
+                break
+            end
+            if vu50.label then
+                pcall(function()
+                    vu50.label:SetVisible(false)
+                end)
+            end
+            if vu50.copyButton then
+                pcall(function()
+                    vu50.copyButton:SetVisible(false)
+                end)
+            end
+            if vu50.previewButton then
+                pcall(function()
+                    vu50.previewButton:SetVisible(false)
+                end)
+            end
+            if vu50.image then
+                pcall(function()
+                    vu50.image:SetVisible(false)
+                end)
+            end
+            if vu50.divider then
+                pcall(function()
+                    vu50.divider:SetVisible(false)
+                end)
+            end
+        end
+        vu8.UIElements = {}
+        local v51, v52, v53 = ipairs(VFXDisplayGroup.Container:GetChildren())
+        while true do
+            local vu54
+            v53, vu54 = v51(v52, v53)
+            if v53 == nil then
+                break
+            end
+            if vu54:IsA("Frame") and vu54.Name ~= "GroupboxHeader" then
+                pcall(function()
+                    vu54:Destroy()
+                end)
+            end
+        end
+    end
+end
+local function vu68()
+    vu55()
+    if VFXDisplayGroup then
+        local v56, v57, v58 = pairs(vu8.TrackedVFX)
+        local v59 = {}
+        while true do
+            local v60
+            v58, v60 = v56(v57, v58)
+            if v58 == nil then
+                break
+            end
+            table.insert(v59, v60)
+        end
+        if # v59 ~= 0 then
+            table.sort(v59, function(p61, p62)
+                return p61.TimeFound > p62.TimeFound
+            end)
+            local v63, v64, v65 = ipairs(v59)
+            while true do
+                local v66
+                v65, v66 = v63(v64, v65)
+                if v65 == nil then
+                    break
+                end
+                vu46(v66, VFXDisplayGroup)
+            end
+        else
+            local v67 = {
+                label = VFXDisplayGroup:AddLabel("No VFX logged yet.", true),
+                divider = VFXDisplayGroup:AddDivider()
+            }
+            vu8.UIElements.noVFX = v67
+        end
+    else
+        return
+    end
+end
+function vu8.CreatePreview(p69, p70)
+    if p69.PreviewEnabled then
+        p69:ClearPreviews()
+        local v71 = vu7.Character
+        if v71 then
+            local v72 = v71:FindFirstChild("HumanoidRootPart") or (v71:FindFirstChild("Torso") or v71:FindFirstChild("UpperTorso"))
+            if v72 then
+                local v73 = v72.CFrame.LookVector
+                local v74 = v72.Position + v73 * 5 + Vector3.new(0, 2, 0)
+                local v75 = Instance.new("Part")
+                v75.Name = "VFXPreview"
+                v75.Size = Vector3.new(3, 3, 3)
+                v75.Position = v74
+                v75.Anchored = true
+                v75.CanCollide = false
+                v75.Material = Enum.Material.Glass
+                v75.Transparency = 1
+                v75.Parent = workspace
+                local v76
+                if p70.ClassType ~= "ParticleEmitter" then
+                    v76 = nil
+                else
+                    v76 = Instance.new("ParticleEmitter")
+                    v76.Texture = p70.TextureId
+                    v76.Lifetime = NumberRange.new(2, 4)
+                    v76.Rate = 20
+                    v76.SpreadAngle = Vector2.new(45, 45)
+                    v76.Speed = NumberRange.new(5, 10)
+                    v76.Parent = v75
+                end
+                table.insert(p69.PreviewClones, v75)
+                if v76 then
+                    table.insert(p69.PreviewClones, v76)
+                end
+                vu2:Notify("Showing: " .. p70.Name, 3)
+            else
+                vu2:Notify("No torso found!", 3)
+            end
+        else
+            vu2:Notify("No character found!", 3)
+            return
+        end
+    else
+        return
+    end
+end
+function vu8.ClearPreviews(p77)
+    local v78, v79, v80 = ipairs(p77.PreviewClones)
+    while true do
+        local vu81
+        v80, vu81 = v78(v79, v80)
+        if v80 == nil then
+            break
+        end
+        if vu81 and vu81.Parent then
+            pcall(function()
+                vu81:Destroy()
+            end)
+        end
+    end
+    p77.PreviewClones = {}
+end
+function vu8.SetPreviewEnabled(p82, p83)
+    p82.PreviewEnabled = p83
+    if not p83 then
+        p82:ClearPreviews()
+    end
+end
+function vu8.DetectVFX(p84, p85)
+    if p84.Enabled then
+        return p85:IsA("ParticleEmitter") and p85.Texture ~= "" and {
+            ClassType = p85.ClassName,
+            TextureId = p85.Texture,
+            CanPreview = true
+        } or nil
+    else
+        return nil
+    end
+end
+function vu8.LogVFX(p86, p87)
+    if p86.Enabled then
+        local v88 = tick()
+        if v88 - p86.LastLogTime >= p86.LogCooldown then
+            local v89 = p86:DetectVFX(p87)
+            if v89 then
+                p86.LastLogTime = v88
+                local v90 = p87:GetFullName()
+                local v91 = v89.TextureId .. "|" .. v89.ClassType
+                p86.VFXCounts[v91] = (p86.VFXCounts[v91] or 0) + 1
+                local v92 = p86.VFXCounts[v91]
+                if p86.TrackedVFX[v91] then
+                    p86.TrackedVFX[v91].Count = v92
+                else
+                    local v93 = {
+                        Name = p87.Name,
+                        OriginalName = p87.Name,
+                        TextureId = v89.TextureId,
+                        Count = v92,
+                        ClassType = v89.ClassType,
+                        ParentPath = v90,
+                        TimeFound = os.date("%H:%M:%S"),
+                        Object = p87,
+                        CanPreview = v89.CanPreview
+                    }
+                    p86.TrackedVFX[v91] = v93
+                    vu68()
+                    vu28(v93)
+                    if p86.ShowNotifications then
+                        vu2:Notify("Particle: " .. p87.Name .. " [" .. v92 .. "x]", 2)
+                    end
+                end
+            end
+        else
+            return
+        end
+    else
+        return
+    end
+end
+local function vu101()
+    local vu94 = vu7.Character
+    if vu94 then
+        local function vu100(p95)
+            if p95 and p95:IsA("Instance") then
+                vu8:LogVFX(p95)
+                local v96, v97, v98 = ipairs(p95:GetChildren())
+                while true do
+                    local v99
+                    v98, v99 = v96(v97, v98)
+                    if v98 == nil then
+                        break
+                    end
+                    vu100(v99)
+                end
+            end
+        end
+        task.spawn(function()
+            vu100(vu94)
+        end)
+    end
+end
+function vu8.StartLogging(pu102)
+    if not pu102.Enabled then
+        pu102.Enabled = true
+        vu2:Notify("VFX Logger enabled", 3)
+        local v103, v104, v105 = pairs(pu102.Connections)
+        while true do
+            local v106
+            v105, v106 = v103(v104, v105)
+            if v105 == nil then
+                break
+            end
+            v106:Disconnect()
+        end
+        pu102.Connections = {}
+        vu101()
+        pu102.Connections.characterAdded = vu7.CharacterAdded:Connect(function(_)
+            task.wait(2)
+            if pu102.Enabled then
+                vu101()
+            end
+        end)
+        local function vu109(p107)
+            pu102.Connections.descendantAdded = p107.DescendantAdded:Connect(function(p108)
+                if pu102.Enabled then
+                    task.wait(0.1)
+                    vu8:LogVFX(p108)
+                end
+            end)
+        end
+        local v110 = vu7.Character
+        if v110 then
+            vu109(v110)
+        end
+        pu102.Connections.characterAdded2 = vu7.CharacterAdded:Connect(function(p111)
+            task.wait(2)
+            if pu102.Enabled then
+                vu109(p111)
+            end
+        end)
+    end
+end
+function vu8.StopLogging(p112)
+    if p112.Enabled then
+        p112.Enabled = false
+        local v113, v114, v115 = pairs(p112.Connections)
+        while true do
+            local v116
+            v115, v116 = v113(v114, v115)
+            if v115 == nil then
+                break
+            end
+            v116:Disconnect()
+        end
+        p112.Connections = {}
+        vu2:Notify("VFX Logger disabled", 3)
+    end
+end
+function vu8.ClearLogs(p117)
+    p117.TrackedVFX = {}
+    p117.VFXCounts = {}
+    vu55()
+    vu68()
+    vu2:Notify("VFX logs cleared", 3)
+end
+local function vu127(pu118, p119)
+    local v120 = # vu9.UIElements + 1
+    vu9.UIElements[v120] = {}
+    local v121 = p119:AddLabel(string.format("Name: %s\nCount: %dx\nTime: %s\nID: %s", pu118.Name, pu118.Count, pu118.TimeFound, pu118.AnimationId), true)
+    vu9.UIElements[v120].label = v121
+    local v122 = p119:AddButton({
+        Text = "Copy Animation ID",
+        Func = function()
+            setclipboard(pu118.AnimationId)
+            vu2:Notify("Animation ID copied!", 3)
+        end
+    })
+    vu9.UIElements[v120].copyButton = v122
+    local v124 = {
+        Text = "Play Animation",
+        Default = false,
+        Callback = function(p123)
+            vu9:ToggleAnimation(pu118, p123)
+            if p123 then
+                playToggle:SetText("Stop Animation")
+            else
+                playToggle:SetText("Play Animation")
+            end
+        end
+    }
+    local v125 = p119:AddToggle("PlayAnim_" .. v120, v124)
+    vu9.UIElements[v120].playToggle = v125
+    local v126 = p119:AddDivider()
+    vu9.UIElements[v120].divider = v126
+end
+local function vu136()
+    if AnimationDisplayGroup then
+        local v128, v129, v130 = pairs(vu9.UIElements)
+        while true do
+            local vu131
+            v130, vu131 = v128(v129, v130)
+            if v130 == nil then
+                break
+            end
+            if vu131.label then
+                pcall(function()
+                    vu131.label:SetVisible(false)
+                end)
+            end
+            if vu131.copyButton then
+                pcall(function()
+                    vu131.copyButton:SetVisible(false)
+                end)
+            end
+            if vu131.playToggle then
+                pcall(function()
+                    vu131.playToggle:SetVisible(false)
+                end)
+            end
+            if vu131.divider then
+                pcall(function()
+                    vu131.divider:SetVisible(false)
+                end)
+            end
+        end
+        vu9.UIElements = {}
+        local v132, v133, v134 = ipairs(AnimationDisplayGroup.Container:GetChildren())
+        while true do
+            local vu135
+            v134, vu135 = v132(v133, v134)
+            if v134 == nil then
+                break
+            end
+            if vu135:IsA("Frame") and vu135.Name ~= "GroupboxHeader" then
+                pcall(function()
+                    vu135:Destroy()
+                end)
+            end
+        end
+    end
+end
+local function vu149()
+    vu136()
+    if AnimationDisplayGroup then
+        local v137, v138, v139 = pairs(vu9.TrackedAnimations)
+        local v140 = {}
+        while true do
+            local v141
+            v139, v141 = v137(v138, v139)
+            if v139 == nil then
+                break
+            end
+            table.insert(v140, v141)
+        end
+        if # v140 ~= 0 then
+            table.sort(v140, function(p142, p143)
+                return p142.TimeFound > p143.TimeFound
+            end)
+            local v144, v145, v146 = ipairs(v140)
+            while true do
+                local v147
+                v146, v147 = v144(v145, v146)
+                if v146 == nil then
+                    break
+                end
+                vu127(v147, AnimationDisplayGroup)
+            end
+        else
+            local v148 = {
+                label = AnimationDisplayGroup:AddLabel("No animations logged yet.", true),
+                divider = AnimationDisplayGroup:AddDivider()
+            }
+            vu9.UIElements.noAnim = v148
+        end
+    else
+        return
+    end
+end
+function vu9.LogAnimation(p150, p151)
+    if p150.Enabled then
+        if p151 and p151.Animation then
+            local v152 = p151.Animation.AnimationId
+            if v152 and v152 ~= "" then
+                p150.AnimationCounts[v152] = (p150.AnimationCounts[v152] or 0) + 1
+                local v153 = p150.AnimationCounts[v152]
+                if p150.TrackedAnimations[v152] then
+                    p150.TrackedAnimations[v152].Count = v153
+                else
+                    local v154 = {
+                        Name = p151.Name or "Animation",
+                        AnimationId = v152,
+                        Count = v153,
+                        TimeFound = os.date("%H:%M:%S"),
+                        Track = p151
+                    }
+                    p150.TrackedAnimations[v152] = v154
+                    vu149()
+                    vu31(v154)
+                    if p150.ShowNotifications then
+                        vu2:Notify("Animation: " .. v154.Name .. " [" .. v153 .. "x]", 2)
+                    end
+                end
+            end
+        else
+            return
+        end
+    else
+        return
+    end
+end
+function vu9.ToggleAnimation(p155, p156, p157)
+    if not p155.PreviewEnabled then
+        vu2:Notify("Enable animation preview first!", 3)
+        return false
+    end
+    if not p157 then
+        local v158 = p155.PlayingAnimations[p156.AnimationId]
+        if v158 then
+            v158:Stop()
+            p155.PlayingAnimations[p156.AnimationId] = nil
+            vu2:Notify("disabled: " .. p156.Name, 3)
+        end
+        return true
+    end
+    local v159 = vu7.Character
+    if not v159 then
+        vu2:Notify("No character found!", 3)
+        return false
+    end
+    local v160 = v159:FindFirstChildOfClass("Humanoid")
+    if not v160 then
+        vu2:Notify("No humanoid found!", 3)
+        return false
+    end
+    local v161 = v160:FindFirstChildOfClass("Animator")
+    if not v161 then
+        v161 = Instance.new("Animator")
+        v161.Parent = v160
+    end
+    local v162 = Instance.new("Animation")
+    v162.AnimationId = p156.AnimationId
+    local v163 = v161:LoadAnimation(v162)
+    if not v163 then
+        vu2:Notify("Failed to load animation", 3)
+        return false
+    end
+    v163:Play()
+    p155.PlayingAnimations[p156.AnimationId] = v163
+    vu2:Notify("Playing: " .. p156.Name, 3)
+    return true
+end
+function vu9.StopAllAnimations(p164)
+    local v165, v166, v167 = pairs(p164.PlayingAnimations)
+    while true do
+        local v168
+        v167, v168 = v165(v166, v167)
+        if v167 == nil then
+            break
+        end
+        if v168 then
+            v168:Stop()
+        end
+    end
+    p164.PlayingAnimations = {}
+    vu2:Notify("All animations disabled", 3)
+end
+function vu9.StartLogging(pu169)
+    if not pu169.Enabled then
+        pu169.Enabled = true
+        vu2:Notify("Animation Logger enabled", 3)
+        local v170, v171, v172 = pairs(pu169.Connections)
+        while true do
+            local v173
+            v172, v173 = v170(v171, v172)
+            if v172 == nil then
+                break
+            end
+            v173:Disconnect()
+        end
+        pu169.Connections = {}
+        local function vu177(p174)
+            local v175 = p174:WaitForChild("Humanoid")
+            pu169.Connections.animationPlayed = v175.AnimationPlayed:Connect(function(p176)
+                vu9:LogAnimation(p176)
+            end)
+        end
+        local v178 = vu7.Character
+        if v178 then
+            vu177(v178)
+        end
+        pu169.Connections.characterAdded = vu7.CharacterAdded:Connect(function(p179)
+            task.wait(2)
+            if pu169.Enabled then
+                vu177(p179)
+            end
+        end)
+    end
+end
+function vu9.StopLogging(p180)
+    if p180.Enabled then
+        p180.Enabled = false
+        local v181, v182, v183 = pairs(p180.Connections)
+        while true do
+            local v184
+            v183, v184 = v181(v182, v183)
+            if v183 == nil then
+                break
+            end
+            v184:Disconnect()
+        end
+        p180.Connections = {}
+        vu2:Notify("Animation Logger disabled", 3)
+    end
+end
+function vu9.ClearLogs(p185)
+    p185.TrackedAnimations = {}
+    p185.AnimationCounts = {}
+    p185:StopAllAnimations()
+    vu136()
+    vu149()
+    vu2:Notify("Animation logs cleared", 3)
+end
+local function vu195(pu186, p187)
+    local v188 = # vu10.UIElements + 1
+    vu10.UIElements[v188] = {}
+    local v189 = p187:AddLabel(string.format("Name: %s\nCount: %dx\nTime: %s\nID: %s", pu186.Name, pu186.Count, pu186.TimeFound, pu186.SoundId:sub(1, 40) .. (pu186.SoundId:len() > 40 and "..." or "")), true)
+    vu10.UIElements[v188].label = v189
+    local v190 = p187:AddButton({
+        Text = "Copy Sound ID",
+        Func = function()
+            setclipboard(pu186.SoundId)
+            vu2:Notify("Sound ID copied!", 3)
+        end
+    })
+    vu10.UIElements[v188].copyButton = v190
+    local v192 = {
+        Text = "Play Sound",
+        Default = false,
+        Callback = function(p191)
+            vu10:ToggleSound(pu186, p191)
+            if p191 then
+                playToggle:SetText("Stop Sound")
+            else
+                playToggle:SetText("Play Sound")
+            end
+        end
+    }
+    local v193 = p187:AddToggle("PlaySound_" .. v188, v192)
+    vu10.UIElements[v188].playToggle = v193
+    local v194 = p187:AddDivider()
+    vu10.UIElements[v188].divider = v194
+end
+local function vu204()
+    if SoundDisplayGroup then
+        local v196, v197, v198 = pairs(vu10.UIElements)
+        while true do
+            local vu199
+            v198, vu199 = v196(v197, v198)
+            if v198 == nil then
+                break
+            end
+            if vu199.label then
+                pcall(function()
+                    vu199.label:SetVisible(false)
+                end)
+            end
+            if vu199.copyButton then
+                pcall(function()
+                    vu199.copyButton:SetVisible(false)
+                end)
+            end
+            if vu199.playToggle then
+                pcall(function()
+                    vu199.playToggle:SetVisible(false)
+                end)
+            end
+            if vu199.divider then
+                pcall(function()
+                    vu199.divider:SetVisible(false)
+                end)
+            end
+        end
+        vu10.UIElements = {}
+        local v200, v201, v202 = ipairs(SoundDisplayGroup.Container:GetChildren())
+        while true do
+            local vu203
+            v202, vu203 = v200(v201, v202)
+            if v202 == nil then
+                break
+            end
+            if vu203:IsA("Frame") and vu203.Name ~= "GroupboxHeader" then
+                pcall(function()
+                    vu203:Destroy()
+                end)
+            end
+        end
+    end
+end
+local function vu217()
+    vu204()
+    if SoundDisplayGroup then
+        local v205, v206, v207 = pairs(vu10.TrackedSounds)
+        local v208 = {}
+        while true do
+            local v209
+            v207, v209 = v205(v206, v207)
+            if v207 == nil then
+                break
+            end
+            table.insert(v208, v209)
+        end
+        if # v208 ~= 0 then
+            table.sort(v208, function(p210, p211)
+                return p210.TimeFound > p211.TimeFound
+            end)
+            local v212, v213, v214 = ipairs(v208)
+            while true do
+                local v215
+                v214, v215 = v212(v213, v214)
+                if v214 == nil then
+                    break
+                end
+                vu195(v215, SoundDisplayGroup)
+            end
+        else
+            local v216 = {
+                label = SoundDisplayGroup:AddLabel("No sounds logged yet.", true),
+                divider = SoundDisplayGroup:AddDivider()
+            }
+            vu10.UIElements.noSound = v216
+        end
+    else
+        return
+    end
+end
+function vu10.DetectSound(p218, p219)
+    if p218.Enabled then
+        return p219:IsA("Sound") and p219.SoundId ~= "" and {
+            ClassType = p219.ClassName,
+            SoundId = p219.SoundId
+        } or nil
+    else
+        return nil
+    end
+end
+function vu10.LogSound(p220, p221)
+    if p220.Enabled then
+        local v222 = tick()
+        if v222 - p220.LastSoundTime >= p220.SoundCooldown then
+            local v223 = p220:DetectSound(p221)
+            if v223 then
+                p220.LastSoundTime = v222
+                local v224 = p221:GetFullName()
+                local v225 = v223.SoundId
+                p220.SoundCounts[v225] = (p220.SoundCounts[v225] or 0) + 1
+                local v226 = p220.SoundCounts[v225]
+                if p220.TrackedSounds[v225] then
+                    p220.TrackedSounds[v225].Count = v226
+                else
+                    local v227 = {
+                        Name = p221.Name,
+                        OriginalName = p221.Name,
+                        SoundId = v223.SoundId,
+                        Count = v226,
+                        ClassType = v223.ClassType,
+                        ParentPath = v224,
+                        TimeFound = os.date("%H:%M:%S"),
+                        Object = p221
+                    }
+                    p220.TrackedSounds[v225] = v227
+                    vu217()
+                    vu34(v227)
+                    if p220.ShowNotifications then
+                        vu2:Notify("Sound: " .. p221.Name .. " [" .. v226 .. "x]", 2)
+                    end
+                end
+            end
+        else
+            return
+        end
+    else
+        return
+    end
+end
+function vu10.ToggleSound(pu228, pu229, p230)
+    if not pu228.PreviewEnabled then
+        vu2:Notify("Enable sound preview first!", 3)
+        return false
+    end
+    if p230 then
+        local vu231 = Instance.new("Sound")
+        vu231.SoundId = pu229.SoundId
+        vu231.Parent = workspace
+        vu231.Volume = 0.5
+        vu231.Loaded:Connect(function()
+            vu231:Play()
+            pu228.PlayingSounds[pu229.SoundId] = vu231
+            vu2:Notify("Playing: " .. pu229.Name, 3)
+        end)
+        vu231.Ended:Connect(function()
+            vu231:Destroy()
+            pu228.PlayingSounds[pu229.SoundId] = nil
+        end)
+    else
+        local v232 = pu228.PlayingSounds[pu229.SoundId]
+        if v232 then
+            v232:Stop()
+            v232:Destroy()
+            pu228.PlayingSounds[pu229.SoundId] = nil
+            vu2:Notify("disabled: " .. pu229.Name, 3)
+        end
+    end
+end
+function vu10.StopAllSounds(p233)
+    local v234, v235, v236 = pairs(p233.PlayingSounds)
+    while true do
+        local v237
+        v236, v237 = v234(v235, v236)
+        if v236 == nil then
+            break
+        end
+        if v237 then
+            v237:Stop()
+            v237:Destroy()
+        end
+    end
+    p233.PlayingSounds = {}
+    vu2:Notify("All sounds disabled", 3)
+end
+function vu10.StartLogging(pu238)
+    if not pu238.Enabled then
+        pu238.Enabled = true
+        vu2:Notify("Sound Logger enabled", 3)
+        local v239, v240, v241 = pairs(pu238.Connections)
+        while true do
+            local v242
+            v241, v242 = v239(v240, v241)
+            if v241 == nil then
+                break
+            end
+            v242:Disconnect()
+        end
+        pu238.Connections = {}
+        local function vu244(p243)
+            if p243 and p243:IsA("Instance") then
+                vu10:LogSound(p243)
+            end
+        end
+        workspace.DescendantAdded:Connect(function(p245)
+            if pu238.Enabled then
+                task.wait(0.5)
+                vu244(p245)
+            end
+        end)
+        local v246, v247, v248 = ipairs(workspace:GetDescendants())
+        local v249 = vu244
+        while true do
+            local v250
+            v248, v250 = v246(v247, v248)
+            if v248 == nil then
+                break
+            end
+            v249(v250)
+        end
+    end
+end
+function vu10.StopLogging(p251)
+    if p251.Enabled then
+        p251.Enabled = false
+        local v252, v253, v254 = pairs(p251.Connections)
+        while true do
+            local v255
+            v254, v255 = v252(v253, v254)
+            if v254 == nil then
+                break
+            end
+            v255:Disconnect()
+        end
+        p251.Connections = {}
+        vu2:Notify("Sound Logger disabled", 3)
+    end
+end
+function vu10.ClearLogs(p256)
+    p256.TrackedSounds = {}
+    p256.SoundCounts = {}
+    p256:StopAllSounds()
+    vu204()
+    vu217()
+    vu2:Notify("Sound logs cleared", 3)
+end
+local function vu265(pu257, p258)
+    local v259 = # vu11.UIElements + 1
+    vu11.UIElements[v259] = {}
+    local v260 = string.format("Method: %s\nCount: %dx\nTime: %s\nURL: %s", pu257.Method, pu257.Count, pu257.TimeFound, pu257.Url:sub(1, 50) .. (pu257.Url:len() > 50 and "..." or ""))
+    if pu257.Headers and next(pu257.Headers) then
+        v260 = v260 .. "\nHeaders: " .. tostring(pu257.Headers)
+    end
+    if pu257.Body and pu257.Body ~= "" then
+        v260 = v260 .. "\nBody: " .. pu257.Body:sub(1, 30) .. (pu257.Body:len() > 30 and "..." or "")
+    end
+    local v261 = p258:AddLabel(v260, true)
+    vu11.UIElements[v259].label = v261
+    local v263 = p258:AddButton({
+        Text = "Copy Request Data",
+        Func = function()
+            local v262 = pu257.Method .. " " .. pu257.Url
+            if pu257.Headers then
+                v262 = v262 .. "\nHeaders: " .. vu6:JSONEncode(pu257.Headers)
+            end
+            if pu257.Body then
+                v262 = v262 .. "\nBody: " .. pu257.Body
+            end
+            setclipboard(v262)
+            vu2:Notify("Request data copied!", 3)
+        end
+    })
+    vu11.UIElements[v259].copyButton = v263
+    local v264 = p258:AddDivider()
+    vu11.UIElements[v259].divider = v264
+end
+local function vu274()
+    if HTTPDisplayGroup then
+        local v266, v267, v268 = pairs(vu11.UIElements)
+        while true do
+            local vu269
+            v268, vu269 = v266(v267, v268)
+            if v268 == nil then
+                break
+            end
+            if vu269.label then
+                pcall(function()
+                    vu269.label:SetVisible(false)
+                end)
+            end
+            if vu269.copyButton then
+                pcall(function()
+                    vu269.copyButton:SetVisible(false)
+                end)
+            end
+            if vu269.divider then
+                pcall(function()
+                    vu269.divider:SetVisible(false)
+                end)
+            end
+        end
+        vu11.UIElements = {}
+        local v270, v271, v272 = ipairs(HTTPDisplayGroup.Container:GetChildren())
+        while true do
+            local vu273
+            v272, vu273 = v270(v271, v272)
+            if v272 == nil then
+                break
+            end
+            if vu273:IsA("Frame") and vu273.Name ~= "GroupboxHeader" then
+                pcall(function()
+                    vu273:Destroy()
+                end)
+            end
+        end
+    end
+end
+local function vu287()
+    vu274()
+    if HTTPDisplayGroup then
+        local v275, v276, v277 = pairs(vu11.TrackedRequests)
+        local v278 = {}
+        while true do
+            local v279
+            v277, v279 = v275(v276, v277)
+            if v277 == nil then
+                break
+            end
+            table.insert(v278, v279)
+        end
+        if # v278 ~= 0 then
+            table.sort(v278, function(p280, p281)
+                return p280.TimeFound > p281.TimeFound
+            end)
+            local v282, v283, v284 = ipairs(v278)
+            while true do
+                local v285
+                v284, v285 = v282(v283, v284)
+                if v284 == nil then
+                    break
+                end
+                vu265(v285, HTTPDisplayGroup)
+            end
+        else
+            local v286 = {
+                label = HTTPDisplayGroup:AddLabel("No HTTP requests logged yet.", true),
+                divider = HTTPDisplayGroup:AddDivider()
+            }
+            vu11.UIElements.noHTTP = v286
+        end
+    else
+        return
+    end
+end
+function vu11.LogRequest(p288, p289, p290, p291, p292)
+    if p288.Enabled then
+        local v293 = p289 .. "|" .. p290
+        p288.RequestCounts[v293] = (p288.RequestCounts[v293] or 0) + 1
+        local v294 = p288.RequestCounts[v293]
+        if p288.TrackedRequests[v293] then
+            p288.TrackedRequests[v293].Count = v294
+        else
+            local v295 = {
+                Method = p289,
+                Url = p290,
+                Headers = p291,
+                Body = p292,
+                Count = v294,
+                TimeFound = os.date("%H:%M:%S")
+            }
+            p288.TrackedRequests[v293] = v295
+            vu287()
+            vu37(v295)
+            if p288.ShowNotifications then
+                vu2:Notify("HTTP: " .. p289 .. " [" .. v294 .. "x]", 2)
+            end
+        end
+    end
+end
+function vu11.StartLogging(p296)
+    if not p296.Enabled then
+        p296.Enabled = true
+        vu2:Notify("HTTP Logger enabled", 3)
+        hookfunction(game.HttpPost, function(p297, p298, p299, p300, p301, p302)
+            vu11:LogRequest("POST", p298, p302, p299)
+            return oldHttpPost(p297, p298, p299, p300, p301, p302)
+        end)
+        hookfunction(game.HttpGet, function(p303, p304, ...)
+            vu11:LogRequest("GET", p304)
+            return oldHttpGet(p303, p304, ...)
+        end)
+        hookfunction(game.HttpPostAsync, function(p305, p306, p307, p308, p309, p310)
+            vu11:LogRequest("POST_ASYNC", p306, p310, p307)
+            return oldHttpPostAsync(p305, p306, p307, p308, p309, p310)
+        end)
+        hookfunction(game.HttpGetAsync, function(p311, p312, ...)
+            vu11:LogRequest("GET_ASYNC", p312)
+            return oldHttpGetAsync(p311, p312, ...)
+        end)
+    end
+end
+function vu11.StopLogging(p313)
+    if p313.Enabled then
+        p313.Enabled = false
+        vu2:Notify("HTTP Logger disabled", 3)
+    end
+end
+function vu11.ClearLogs(p314)
+    p314.TrackedRequests = {}
+    p314.RequestCounts = {}
+    vu274()
+    vu287()
+    vu2:Notify("HTTP logs cleared", 3)
+end
+local function vu330(p315)
+    if not p315 or p315 == "" then
+        return nil
+    end
+    if p315 == "PlayerGui" then
+        local v316 = game:GetService("Players").LocalPlayer
+        if v316 then
+            v316 = v316:FindFirstChild("PlayerGui")
+        end
+        return v316
+    end
+    if p315 == "CoreGui" then
+        return game:GetService("CoreGui")
+    end
+    if p315 == "StarterGui" then
+        return game:GetService("StarterGui")
+    end
+    local v317, v318, v319 = p315:gmatch("[^%.]+")
+    local v320 = {}
+    while true do
+        v319 = v317(v318, v319)
+        if v319 == nil then
+            break
+        end
+        table.insert(v320, v319)
+    end
+    if # v320 == 0 then
+        return nil
+    end
+    local v321
+    if v320[1] ~= "PlayerGui" then
+        if v320[1] ~= "CoreGui" then
+            if v320[1] ~= "StarterGui" then
+                v321 = game
+            else
+                v321 = game:GetService("StarterGui")
+                table.remove(v320, 1)
+            end
+        else
+            v321 = game:GetService("CoreGui")
+            table.remove(v320, 1)
+        end
+    else
+        v321 = game:GetService("Players").LocalPlayer
+        if v321 then
+            v321 = v321:FindFirstChild("PlayerGui")
+        end
+        table.remove(v320, 1)
+    end
+    if not v321 then
+        return nil
+    end
+    local v322, v323, v324 = ipairs(v320)
+    while true do
+        local v325
+        v324, v325 = v322(v323, v324)
+        if v324 == nil then
+            return v321
+        end
+        local v326 = v321:FindFirstChild(v325)
+        if v326 then
+            v321 = v326
+        else
+            local v327, v328, v329 = ipairs(v321:GetChildren())
+            while true do
+                v329, v321 = v327(v328, v329)
+                if v329 == nil then
+                    v321 = v326
+                end
+                if v321.Name:lower() == v325:lower() then
+                    break
+                end
+            end
+        end
+        if not v321 then
+            return nil
+        end
+    end
+end
+local function vu332(p331)
+    if math.floor(p331) ~= p331 then
+        return string.format("%.6f", p331)
+    else
+        return tostring(p331)
+    end
+end
+local function vu335(p333)
+    local v334 = typeof(p333)
+    if v334 == "number" then
+        return vu332(p333)
+    elseif v334 == "Color3" then
+        return string.format("Color3.fromRGB(%d,%d,%d)", math.round(p333.R * 255), math.round(p333.G * 255), math.round(p333.B * 255))
+    elseif v334 == "Vector2" then
+        return string.format("Vector2.new(%s,%s)", vu332(p333.X), vu332(p333.Y))
+    elseif v334 == "UDim2" then
+        return string.format("UDim2.new(%s,%d,%s,%d)", vu332(p333.X.Scale), p333.X.Offset, vu332(p333.Y.Scale), p333.Y.Offset)
+    elseif v334 == "UDim" then
+        return string.format("UDim.new(%s,%d)", vu332(p333.Scale), p333.Offset)
+    elseif v334 == "string" then
+        return string.format("%q", p333)
+    elseif v334 == "boolean" then
+        return tostring(p333)
+    elseif v334 == "EnumItem" then
+        return tostring(p333)
+    else
+        return tostring(p333)
+    end
+end
+local function vu338(pu336, pu337)
+    return pcall(function()
+        local _ = pu336[pu337]
+        return true
+    end)
+end
+local function vu343(pu339, pu340)
+    local v341, v342 = pcall(function()
+        return pu339[pu340]
+    end)
+    return v341 and v342 and v342 or nil
+end
+local function vu350(pu344, pu345)
+    local v348, v349 = pcall(function()
+        local v346 = Instance.new(pu344)
+        local v347 = v346[pu345]
+        v346:Destroy()
+        return v347
+    end)
+    return v348 and v349 and v349 or nil
+end
+local function vu359(p351)
+    local v352 = p351.ClassName
+    local v353 = {}
+    local v354 = {
+        ScreenGui = {
+            "Name",
+            "ZIndexBehavior",
+            "ResetOnSpawn",
+            "IgnoreGuiInset"
+        },
+        Frame = {
+            "Name",
+            "Size",
+            "Position",
+            "AnchorPoint",
+            "BackgroundColor3",
+            "BackgroundTransparency",
+            "BorderSizePixel",
+            "Visible",
+            "ZIndex",
+            "LayoutOrder",
+            "ClipsDescendants"
+        },
+        TextLabel = {
+            "Name",
+            "Size",
+            "Position",
+            "AnchorPoint",
+            "BackgroundColor3",
+            "BackgroundTransparency",
+            "BorderSizePixel",
+            "Visible",
+            "ZIndex",
+            "Text",
+            "TextColor3",
+            "TextSize",
+            "Font",
+            "TextScaled",
+            "TextWrapped",
+            "RichText",
+            "TextTransparency",
+            "TextXAlignment",
+            "TextYAlignment",
+            "TextTruncate",
+            "LineHeight",
+            "MaxVisibleGraphemes",
+            "TextStrokeColor3",
+            "TextStrokeTransparency"
+        },
+        TextButton = {
+            "Name",
+            "Size",
+            "Position",
+            "AnchorPoint",
+            "BackgroundColor3",
+            "BackgroundTransparency",
+            "BorderSizePixel",
+            "Visible",
+            "ZIndex",
+            "Text",
+            "TextColor3",
+            "TextSize",
+            "Font",
+            "TextScaled",
+            "TextWrapped",
+            "RichText",
+            "TextTransparency",
+            "TextXAlignment",
+            "TextYAlignment",
+            "TextTruncate",
+            "LineHeight",
+            "MaxVisibleGraphemes",
+            "TextStrokeColor3",
+            "TextStrokeTransparency",
+            "AutoButtonColor"
+        },
+        TextBox = {
+            "Name",
+            "Size",
+            "Position",
+            "AnchorPoint",
+            "BackgroundColor3",
+            "BackgroundTransparency",
+            "BorderSizePixel",
+            "Visible",
+            "ZIndex",
+            "Text",
+            "TextColor3",
+            "TextSize",
+            "Font",
+            "TextScaled",
+            "TextWrapped",
+            "RichText",
+            "TextTransparency",
+            "TextXAlignment",
+            "TextYAlignment",
+            "TextTruncate",
+            "LineHeight",
+            "MaxVisibleGraphemes",
+            "TextStrokeColor3",
+            "TextStrokeTransparency",
+            "ClearTextOnFocus",
+            "MultiLine",
+            "PlaceholderText",
+            "PlaceholderColor3",
+            "CursorPosition",
+            "SelectionStart",
+            "ShowNativeInput",
+            "TextEditable"
+        },
+        UICorner = {
+            "Name",
+            "CornerRadius"
+        },
+        UIStroke = {
+            "Name",
+            "Color",
+            "Thickness",
+            "Transparency",
+            "ApplyStrokeMode"
+        },
+        UIAspectRatioConstraint = {
+            "Name",
+            "AspectRatio"
+        },
+        UIListLayout = {
+            "Name",
+            "Padding",
+            "FillDirection",
+            "HorizontalAlignment",
+            "VerticalAlignment",
+            "SortOrder"
+        },
+        UIPadding = {
+            "Name",
+            "PaddingLeft",
+            "PaddingRight",
+            "PaddingTop",
+            "PaddingBottom"
+        },
+        ImageLabel = {
+            "Name",
+            "Size",
+            "Position",
+            "AnchorPoint",
+            "BackgroundColor3",
+            "BackgroundTransparency",
+            "BorderSizePixel",
+            "Visible",
+            "ZIndex",
+            "Image",
+            "ImageColor3",
+            "ImageTransparency",
+            "ScaleType"
+        },
+        ImageButton = {
+            "Name",
+            "Size",
+            "Position",
+            "AnchorPoint",
+            "BackgroundColor3",
+            "BackgroundTransparency",
+            "BorderSizePixel",
+            "Visible",
+            "ZIndex",
+            "Image",
+            "ImageColor3",
+            "ImageTransparency",
+            "ScaleType",
+            "AutoButtonColor"
+        },
+        ScrollingFrame = {
+            "Name",
+            "Size",
+            "Position",
+            "AnchorPoint",
+            "BackgroundColor3",
+            "BackgroundTransparency",
+            "BorderSizePixel",
+            "Visible",
+            "ZIndex",
+            "CanvasSize",
+            "ScrollBarImageColor3",
+            "ScrollBarThickness",
+            "AutomaticCanvasSize"
+        }
+    }
+    if v354[v352] then
+        local v355, v356, v357 = ipairs(v354[v352])
+        while true do
+            local v358
+            v357, v358 = v355(v356, v357)
+            if v357 == nil then
+                break
+            end
+            if vu338(p351, v358) then
+                table.insert(v353, v358)
+            end
+        end
+    end
+    return v353
+end
+local function vu361(p360)
+    if p360 < 1024 then
+        return p360 .. "B"
+    elseif p360 < 1048576 then
+        return string.format("%.0fKB", p360 / 1024)
+    else
+        return string.format("%.0fMB", p360 / 1048576)
+    end
+end
+local function vu392(p362)
+    local v363 = vu330(p362)
+    if not v363 then
+        return nil, "Instance not found"
+    end
+    local v364 = {}
+    local v365 = 0
+    local v366 = {}
+    local vu367 = {}
+    local function vu373(p368)
+        table.insert(vu367, p368)
+        local v369, v370, v371 = ipairs(p368:GetChildren())
+        while true do
+            local v372
+            v371, v372 = v369(v370, v371)
+            if v371 == nil then
+                break
+            end
+            if not (v372:IsA("Script") or (v372:IsA("LocalScript") or v372:IsA("ModuleScript"))) then
+                vu373(v372)
+            end
+        end
+    end
+    vu373(v363)
+    local v374, v375, v376 = ipairs(vu367)
+    while true do
+        local v377
+        v376, v377 = v374(v375, v376)
+        if v376 == nil then
+            break
+        end
+        v365 = v365 + 1
+        local v378 = v377.ClassName .. v365
+        v366[v377] = v378
+        table.insert(v364, string.format("local %s = Instance.new(%q)", v378, v377.ClassName))
+        local v379 = vu359(v377)
+        local v380, v381, v382 = ipairs(v379)
+        while true do
+            local v383
+            v382, v383 = v380(v381, v382)
+            if v382 == nil then
+                break
+            end
+            local v384 = vu343(v377, v383)
+            if v384 ~= nil then
+                local v385 = vu350(v377.ClassName, v383)
+                if v383 == "Visible" then
+                    if vu13.Vis ~= "Visible" then
+                        if vu13.Vis ~= "NotVisible" then
+                            if v383 == "Name" or (v383 == "Size" or (v383 == "Position" or (v383 == "Visible" or (v383 == "Text" or v384 ~= v385)))) then
+                                table.insert(v364, string.format("%s.%s = %s", v378, v383, vu335(v384)))
+                            end
+                        else
+                            table.insert(v364, string.format("%s.%s = %s", v378, v383, vu335(false)))
+                        end
+                    else
+                        table.insert(v364, string.format("%s.%s = %s", v378, v383, vu335(true)))
+                    end
+                elseif v383 == "Name" or (v383 == "Size" or (v383 == "Position" or (v383 == "Visible" or (v383 == "Text" or v384 ~= v385)))) then
+                    table.insert(v364, string.format("%s.%s = %s", v378, v383, vu335(v384)))
+                end
+            end
+        end
+        if v377 == v363 then
+            table.insert(v364, string.format("%s.Parent = game.Players.LocalPlayer.PlayerGui", v378))
+        else
+            local v386 = v366[v377.Parent]
+            if v386 then
+                table.insert(v364, string.format("%s.Parent = %s", v378, v386))
+            end
+        end
+    end
+    local v387 = # v364
+    local v388 = table.concat(v364, "\n")
+    local v389 = # v388
+    local v390 = # v388
+    local v391 = {
+        "--[[ Expect some bugs - Arch ]]\n",
+        "--[[" .. v387 .. " lines]]\n",
+        "--[[" .. v389 .. " letters]]\n",
+        "--[[" .. vu361(v390) .. "]]\n",
+        "",
+        v388
+    }
+    return table.concat(v391, "\n"), v387, v389, v390
+end
+local function vu402(pu393, pu394)
+    if not writefile then
+        return false, "File functions not available"
+    end
+    local v395 = pu394:match("^(.*[/\\])")
+    if v395 and (isfolder and makefolder) then
+        local v396, v397, v398 = v395:gmatch("([^/\\]+)[/\\]?")
+        local v399 = ""
+        while true do
+            v398 = v396(v397, v398)
+            if v398 == nil then
+                break
+            end
+            v399 = v399 .. v398 .. "/"
+            if not isfolder(v399) then
+                makefolder(v399)
+            end
+        end
+    end
+    local v400, v401 = pcall(function()
+        writefile(pu394, pu393)
+    end)
+    return v400, v401
+end
+local function vu414()
+    local vu403 = {
+        "PlayerGui",
+        "CoreGui",
+        "StarterGui"
+    }
+    pcall(function()
+        local v404 = game:GetService("Players").LocalPlayer
+        local v405 = v404 and v404:FindFirstChild("PlayerGui")
+        if v405 then
+            local v406, v407, v408 = ipairs(v405:GetChildren())
+            while true do
+                local v409
+                v408, v409 = v406(v407, v408)
+                if v408 == nil then
+                    break
+                end
+                if v409:IsA("ScreenGui") then
+                    table.insert(vu403, "PlayerGui." .. v409.Name)
+                end
+            end
+        end
+    end)
+    pcall(function()
+        local v410, v411, v412 = ipairs(game:GetService("CoreGui"):GetChildren())
+        while true do
+            local v413
+            v412, v413 = v410(v411, v412)
+            if v412 == nil then
+                break
+            end
+            if v413:IsA("ScreenGui") then
+                table.insert(vu403, "CoreGui." .. v413.Name)
+            end
+        end
+    end)
+    return vu403
+end
+local function vu416(p415)
+    if p415 and # p415 > 10 then
+        vu2:Notify("Teleporting to Job ID...", 3)
+        TeleportService:TeleportToPlaceInstance(game.PlaceId, p415, vu7)
+    else
+        vu2:Notify("Invalid Job ID!", 3)
+    end
+end
+local function v417()
+    vu2:Notify("Rejoining server...", 3)
+    TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, vu7)
+end
+local function v424()
+    vu2:Notify("Searching for old server...", 3)
+    local v418, v419 = pcall(function()
+        return vu6:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if v418 and (v419 and v419.data) then
+        local v420, v421, v422 = ipairs(v419.data)
+        while true do
+            local v423
+            v422, v423 = v420(v421, v422)
+            if v422 == nil then
+                break
+            end
+            if v423.playing < v423.maxPlayers then
+                vu2:Notify("Joining old server...", 3)
+                TeleportService:TeleportToPlaceInstance(game.PlaceId, v423.id, vu7)
+                return
+            end
+        end
+    end
+    vu2:Notify("No old servers found!", 3)
+end
+local function v431()
+    vu2:Notify("Finding new server...", 3)
+    local v425, v426 = pcall(function()
+        return vu6:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Desc&limit=100"))
+    end)
+    if v425 and (v426 and v426.data) then
+        local v427, v428, v429 = ipairs(v426.data)
+        while true do
+            local v430
+            v429, v430 = v427(v428, v429)
+            if v429 == nil then
+                break
+            end
+            if v430.id ~= game.JobId and v430.playing < v430.maxPlayers then
+                vu2:Notify("Joining new server...", 3)
+                TeleportService:TeleportToPlaceInstance(game.PlaceId, v430.id, vu7)
+                return
+            end
+        end
+    end
+    vu2:Notify("No new servers found!", 3)
+end
+local function v440()
+    vu2:Notify("Searching for random server...", 3)
+    local v432, v433 = pcall(function()
+        return vu6:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if v432 and (v433 and (v433.data and # v433.data > 0)) then
+        local v434, v435, v436 = ipairs(v433.data)
+        local v437 = {}
+        while true do
+            local v438
+            v436, v438 = v434(v435, v436)
+            if v436 == nil then
+                break
+            end
+            if v438.id ~= game.JobId and v438.playing < v438.maxPlayers then
+                table.insert(v437, v438)
+            end
+        end
+        if # v437 > 0 then
+            local v439 = v437[math.random(1, # v437)]
+            vu2:Notify("Joining random server...", 3)
+            TeleportService:TeleportToPlaceInstance(game.PlaceId, v439.id, vu7)
+            return
+        end
+    end
+    vu2:Notify("No servers found!", 3)
+end
+local function vu444()
+    local vu441 = "https://pastebin.com/raw/tkeqc2pw"
+    local v442, v443 = pcall(function()
+        return loadstring(game:HttpGet(vu441))()
+    end)
+    if not (v442 and v443) then
+        vu2:Notify("Failed to generate private server code!", 3)
+        return nil
+    end
+    setclipboard(v443)
+    vu2:Notify("Private server code copied: " .. v443, 5)
+    return v443
+end
+local function vu446(p445)
+    if p445 and p445 ~= "" then
+        vu2:Notify("Joining private server...", 3)
+        game:GetService("RobloxReplicatedStorage").ContactListIrisInviteTeleport:FireServer(game.PlaceId, "", p445)
+    else
+        vu2:Notify("Please enter an access code!", 3)
+    end
+end
+local v447 = vu2
+local v448 = vu2.CreateWindow(v447, {
+    Title = "&R4 / ETC Logger",
+    Footer = "Expect some bugs k?",
+    Icon = 104549958225566,
+    NotifySide = "Right",
+    ShowCustomCursor = true
+})
+local v449 = {
+    VFX = v448:AddTab("VFX Logger", "sparkles"),
+    Animation = v448:AddTab("Animation Logger", "film"),
+    Sound = v448:AddTab("Sound Logger", "volume-2"),
+    HTTP = v448:AddTab("HTTP Logger", "globe"),
+    Copy = v448:AddTab("Copy UI", "copy"),
+    Server = v448:AddTab("Server", "server"),
+    Settings = v448:AddTab("Settings", "settings")
+}
+VFXDisplayGroup = v449.VFX:AddLeftGroupbox("Particle Logs", "list")
+local v450 = v449.VFX:AddRightGroupbox("VFX Settings", "settings")
+v450:AddImage("VFXHeader", {
+    Image = "http://www.roblox.com/asset/?id=135666356081915",
+    Height = 80
+})
+v450:AddDivider()
+v450:AddToggle("VFXLoggingToggle", {
+    Text = "Enable VFX Logger",
+    Default = false,
+    Callback = function(p451)
+        if p451 then
+            vu8:StartLogging()
+            Options.VFXLoggingToggle:SetText("Disable VFX Logger")
+        else
+            vu8:StopLogging()
+            Options.VFXLoggingToggle:SetText("Enable VFX Logger")
+        end
+    end
+})
+v450:AddToggle("VFXPreviewToggle", {
+    Text = "Enable VFX Preview",
+    Default = false,
+    Callback = function(p452)
+        vu8:SetPreviewEnabled(p452)
+        vu2:Notify(p452 and "VFX preview enabled" or "VFX preview disabled", 3)
+    end
+})
+v450:AddToggle("VFXNotificationsToggle", {
+    Text = "Show VFX Notifications",
+    Default = true,
+    Callback = function(p453)
+        vu8.ShowNotifications = p453
+    end
+})
+v450:AddDivider()
+v450:AddButton({
+    Text = "Clear VFX Logs",
+    Func = function()
+        vu8:ClearLogs()
+    end
+})
+AnimationDisplayGroup = v449.Animation:AddLeftGroupbox("Animation Logs", "list")
+local v454 = v449.Animation:AddRightGroupbox("Animation Settings", "settings")
+v454:AddImage("AnimationHeader", {
+    Image = "http://www.roblox.com/asset/?id=135666356081915",
+    Height = 80
+})
+v454:AddToggle("AnimationLoggingToggle", {
+    Text = "Enable Animation Logger",
+    Default = false,
+    Callback = function(p455)
+        if p455 then
+            vu9:StartLogging()
+            Options.AnimationLoggingToggle:SetText("Disable Animation Logger")
+        else
+            vu9:StopLogging()
+            Options.AnimationLoggingToggle:SetText("Enable Animation Logger")
+        end
+    end
+})
+v454:AddToggle("AnimationPreviewToggle", {
+    Text = "Enable Animation Preview",
+    Default = false,
+    Callback = function(p456)
+        vu9.PreviewEnabled = p456
+        if not p456 then
+            vu9:StopAllAnimations()
+        end
+        vu2:Notify(p456 and "Animation preview enabled" or "Animation preview disabled", 3)
+    end
+})
+v454:AddToggle("AnimationNotificationsToggle", {
+    Text = "Show Animation Notifications",
+    Default = true,
+    Callback = function(p457)
+        vu9.ShowNotifications = p457
+    end
+})
+v454:AddDivider()
+v454:AddButton({
+    Text = "Clear Animation Logs",
+    Func = function()
+        vu9:ClearLogs()
+    end
+})
+SoundDisplayGroup = v449.Sound:AddLeftGroupbox("Sound Logs", "list")
+local v458 = v449.Sound:AddRightGroupbox("Sound Settings", "settings")
+v458:AddImage("SoundHeader", {
+    Image = "http://www.roblox.com/asset/?id=135666356081915",
+    Height = 80
+})
+v458:AddToggle("SoundLoggingToggle", {
+    Text = "Enable Sound Logger",
+    Default = false,
+    Callback = function(p459)
+        if p459 then
+            vu10:StartLogging()
+            Options.SoundLoggingToggle:SetText("Disable Sound Logger")
+        else
+            vu10:StopLogging()
+            Options.SoundLoggingToggle:SetText("Enable Sound Logger")
+        end
+    end
+})
+v458:AddToggle("SoundPreviewToggle", {
+    Text = "Enable Sound Preview",
+    Default = false,
+    Callback = function(p460)
+        vu10.PreviewEnabled = p460
+        if not p460 then
+            vu10:StopAllSounds()
+        end
+        vu2:Notify(p460 and "Sound preview enabled" or "Sound preview disabled", 3)
+    end
+})
+v458:AddToggle("SoundNotificationsToggle", {
+    Text = "Show Sound Notifications",
+    Default = true,
+    Callback = function(p461)
+        vu10.ShowNotifications = p461
+    end
+})
+v458:AddDivider()
+v458:AddButton({
+    Text = "Clear Sound Logs",
+    Func = function()
+        vu10:ClearLogs()
+    end
+})
+HTTPDisplayGroup = v449.HTTP:AddLeftGroupbox("HTTP Logs", "list")
+local v462 = v449.HTTP:AddRightGroupbox("HTTP Settings", "settings")
+v462:AddImage("HTTPHeader", {
+    Image = "http://www.roblox.com/asset/?id=135666356081915",
+    Height = 80
+})
+v462:AddToggle("HTTPLoggingToggle", {
+    Text = "Enable HTTP Logger",
+    Default = false,
+    Callback = function(p463)
+        if p463 then
+            vu11:StartLogging()
+            Options.HTTPLoggingToggle:SetText("Disable HTTP Logger")
+        else
+            vu11:StopLogging()
+            Options.HTTPLoggingToggle:SetText("Enable HTTP Logger")
+        end
+    end
+})
+v462:AddToggle("HTTPNotificationsToggle", {
+    Text = "Show HTTP Notifications",
+    Default = true,
+    Callback = function(p464)
+        vu11.ShowNotifications = p464
+    end
+})
+v462:AddDivider()
+v462:AddButton({
+    Text = "Clear HTTP Logs",
+    Func = function()
+        vu11:ClearLogs()
+    end
+})
+local v465 = v449.Copy:AddLeftGroupbox("UI Copier", "list")
+v465:AddInput("UIPath", {
+    Default = "PlayerGui",
+    Placeholder = "PlayerGui.YourScreenGui",
+    Tooltip = "Put the UI Path here"
+})
+v465:AddDropdown("PathSuggestions", {
+    Values = vu414(),
+    Default = 1,
+    Text = "Easier way to get UI Path",
+    Tooltip = "Select which UI Path you want"
+})
+v465:AddDropdown("VisibilitySetting", {
+    Values = {
+        "Default",
+        "Visible",
+        "NotVisible"
+    },
+    Default = 1,
+    Text = "UI Visibility",
+    Tooltip = "Set the UI visibility",
+    Callback = function(p466)
+        vu13.Vis = p466
+    end
+})
+v465:AddToggle("SaveFile", {
+    Text = "Save as File",
+    Default = false,
+    Tooltip = "Save UI as .lua file",
+    Callback = function(p467)
+        vu13.SaveFile = p467
+    end
+})
+v465:AddButton("Use Selected UI", function()
+    local v468 = Opt.PathSuggestions and Opt.PathSuggestions.Value
+    if v468 then
+        Opt.UIPath:SetValue(v468)
+    end
+end)
+v465:AddButton("Refresh", function()
+    local v469 = vu414()
+    Opt.PathSuggestions:SetValues(v469)
+    vu2:Notify("Paths refreshed", 2)
+end)
+v465:AddButton("Copy UI to Clipboard", function()
+    local vu470 = Opt.UIPath.Value
+    if vu470 and vu470 ~= "" then
+        vu2:Notify("Copying UI", 2)
+        local v471, vu472, v473, v474, v475 = pcall(function()
+            return vu392(vu470)
+        end)
+        if v471 and vu472 then
+            if vu13.SaveFile then
+                local v476 = vu470 .. " - " .. os.date("%Y-%m-%d") .. ".txt"
+                local vu477 = "Copy-UI"
+                local v478 = vu477 .. "/" .. v476
+                local v479, _ = pcall(function()
+                    if not isfolder then
+                        return false, "No isfolder function"
+                    end
+                    if not isfolder(vu477) then
+                        makefolder(vu477)
+                    end
+                    return true
+                end)
+                if v479 then
+                    local v480, v481 = vu402(vu472, v478)
+                    if v480 then
+                        vu2:Notify("UI saved to " .. v476 .. " - " .. v473 .. " lines, " .. v474 .. " letters, " .. vu361(v475), 5)
+                    else
+                        vu2:Notify("File save failed: " .. tostring(v481), 4)
+                    end
+                else
+                    vu2:Notify("Create Folder failed", 4)
+                end
+            else
+                local v483, _ = pcall(function()
+                    local v482 = vu472:gsub("local (%w+) = Instance.new", "local TestCopy_%1 = Instance.new"):gsub("(%w+)%.Parent = game%.Players%.LocalPlayer", "TestCopy_%1.Parent = game.Players.LocalPlayer")
+                    loadstring(v482)()
+                end)
+                if v483 then
+                    setclipboard(vu472)
+                    vu2:Notify("UI copied to clipboard - " .. v473 .. " lines, " .. v474 .. " letters, " .. vu361(v475), 4)
+                else
+                    setclipboard(vu472)
+                    vu2:Notify("UI copied to clipboard - " .. v473 .. " lines, " .. v474 .. " letters, " .. vu361(v475), 4)
+                end
+            end
+        else
+            vu2:Notify("Copy failed", 4)
+        end
+    else
+        vu2:Notify("Set UI path", 3)
+    end
+end)
+local v484 = v449.Copy:AddRightGroupbox("How to use", "settings")
+v484:AddImage("CopyHeader", {
+    Image = "http://www.roblox.com/asset/?id=135666356081915",
+    Height = 80
+})
+v484:AddLabel("Enter the UI Path you want to Copy", true)
+v484:AddLabel("Example: PlayerGui.ScreenGui", true)
+v484:AddLabel("Click copy to clipboard", true)
+local v485 = v449.Server:AddLeftGroupbox("Server Teleport", "server")
+local v486 = v449.Server:AddRightGroupbox("Private Server", "lock")
+v485:AddButton({
+    Text = "Copy Current Job ID",
+    Func = function()
+        setclipboard(game.JobId)
+        vu2:Notify("Job ID copied to clipboard!", 3)
+    end
+})
+v485:AddButton({
+    Text = "Rejoin Server",
+    Func = v417
+})
+v485:AddDivider()
+v485:AddButton({
+    Text = "Join Old Server",
+    Func = v424
+})
+v485:AddButton({
+    Text = "Join New Server",
+    Func = v431
+})
+v485:AddButton({
+    Text = "Join Random Server",
+    Func = v440
+})
+v485:AddDivider()
+v485:AddInput("JobIDInput", {
+    Default = "",
+    Numeric = false,
+    Finished = false,
+    Text = "Job ID",
+    Tooltip = "Enter Job ID to join",
+    Placeholder = "Enter Job ID here..."
+})
+v485:AddButton({
+    Text = "Join Job ID",
+    Func = function()
+        vu416(Options.JobIDInput.Value)
+    end
+})
+v486:AddButton({
+    Text = "Generate Private Server Code",
+    Func = function()
+        vu444()
+    end
+})
+v486:AddInput("PrivateCodeInput", {
+    Default = "",
+    Numeric = false,
+    Finished = false,
+    Text = "Access Code",
+    Tooltip = "Enter private server access code",
+    Placeholder = "Enter access code here..."
+})
+v486:AddButton({
+    Text = "Join Private Server",
+    Func = function()
+        vu446(Options.PrivateCodeInput.Value)
+    end
+})
+local v487 = v449.Settings:AddLeftGroupbox("Session Settings", "save")
+v487:AddToggle("SessionSaveToggle", {
+    Text = "Save Session to File",
+    Default = false,
+    Callback = function(p488)
+        vu12.SaveToFile = p488
+        if p488 then
+            vu23()
+            vu2:Notify("Session file saving enabled", 3)
+        else
+            vu2:Notify("Session file saving disabled", 3)
+        end
+    end
+})
+v487:AddButton({
+    Text = "Force Save Session",
+    Func = function()
+        if vu12.SaveToFile then
+            vu25()
+            vu2:Notify("Session saved to file!", 3)
+        else
+            vu2:Notify("Enable session saving first!", 3)
+        end
+    end
+})
+local v489 = v449.Settings:AddRightGroupbox("Menu Settings", "wrench")
+v489:AddToggle("ShowCustomCursor", {
+    Text = "Custom Cursor",
+    Default = true,
+    Callback = function(p490)
+        vu2.ShowCustomCursor = p490
+    end
+})
+v489:AddLabel("Menu Keybind"):AddKeyPicker("MenuKeybind", {
+    Default = "RightShift",
+    NoUI = true,
+    Text = "Menu keybind"
+})
+v489:AddButton("Unload", function()
+    vu8:StopLogging()
+    vu9:StopLogging()
+    vu10:StopLogging()
+    vu11:StopLogging()
+    vu8:ClearPreviews()
+    vu9:StopAllAnimations()
+    vu10:StopAllSounds()
+    vu25()
+    vu2:Unload()
+end)
+v3:SetLibrary(vu2)
+v4:SetLibrary(vu2)
+v4:IgnoreThemeSettings()
+v4:SetIgnoreIndexes({
+    "MenuKeybind"
+})
+v4:BuildConfigSection(v449.Settings)
+v3:ApplyToTab(v449.Settings)
+v4:LoadAutoloadConfig()
+vu2.ToggleKeybind = Options.MenuKeybind
+VFXDisplayGroup:AddLabel("VFX Logger Ready", true)
+VFXDisplayGroup:AddDivider()
+AnimationDisplayGroup:AddLabel("Animation Logger Ready", true)
+AnimationDisplayGroup:AddDivider()
+SoundDisplayGroup:AddLabel("Sound Logger Ready", true)
+SoundDisplayGroup:AddDivider()
+HTTPDisplayGroup:AddLabel("HTTP Logger Ready", true)
+HTTPDisplayGroup:AddDivider()
+task.spawn(function()
+    while true do
+        task.wait(10)
+        if vu2.Unloaded then
+            break
+        end
+        pcall(function()
+            if Opt.PathSuggestions then
+                Opt.PathSuggestions:SetValues(vu414())
+            end
+        end)
+    end
+end)
+vu23()
+local v491 = vu2
+vu2.Notify(v491, "Loaded!", 5)
